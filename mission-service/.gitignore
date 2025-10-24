@@ -31,3 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Spring Boot config ###
+mission-service/src/main/resources/application.properties
+mission-service/src/test/resources/application-test.properties
+HELP.md
