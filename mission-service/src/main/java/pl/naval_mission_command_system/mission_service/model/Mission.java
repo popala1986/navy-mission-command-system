@@ -6,14 +6,13 @@ import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.annotations.GenericGenerator;
 
 import java.time.LocalDateTime;
 
 /**
  * Represents a military mission with metadata such as name, description,
- * difficulty, duration, and current status.
- * <p>
- * Designed for use in mission-command or defense-critical systems.
+ * difficulty, duration, criticality, and current status.
  */
 @Entity
 @Table(name = "missions")
@@ -21,15 +20,20 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@ToString(exclude = "description")
 public class Mission {
 
     /**
      * Unique identifier for the mission.
+     * Using UUID for better uniqueness across microservices.
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     @Column(name = "id", updatable = false, nullable = false)
-    private Long id;
+    @EqualsAndHashCode.Include
+    private String id;
 
     /**
      * Name of the mission.
@@ -46,10 +50,12 @@ public class Mission {
     private String description;
 
     /**
-     * Difficulty level of the mission (e.g., LOW, MEDIUM, HIGH).
+     * Difficulty level assigned to the mission.
      */
-    @Column(name = "difficulty", length = 20)
-    private String difficulty;
+    @Enumerated(EnumType.STRING)
+    @NotNull
+    @Column(name = "mission_difficulty", nullable = false, length = 20)
+    private MissionDifficulty missionDifficulty;
 
     /**
      * Estimated duration of the mission in minutes.
@@ -58,12 +64,20 @@ public class Mission {
     private int durationMinutes;
 
     /**
-     * Current status of the mission lifecycle.
-     * Defaults to {@code PENDING}.
+     * Criticality level of the mission.
+     */
+    @Enumerated(EnumType.STRING)
+    @NotNull
+    @Column(name = "mission_criticality", nullable = false, length = 20)
+    private MissionCriticality missionCriticality;
+
+    /**
+     * Status of the mission lifecycle.
      */
     @Enumerated(EnumType.STRING)
     @NotNull
     @Column(name = "status", nullable = false, length = 20)
+    @Builder.Default
     private MissionStatus status = MissionStatus.PENDING;
 
     /**
@@ -79,4 +93,13 @@ public class Mission {
     @UpdateTimestamp
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+    /**
+     * Optional audit fields.
+     */
+    @Column(name = "created_by")
+    private String createdBy;
+
+    @Column(name = "updated_by")
+    private String updatedBy;
 }
