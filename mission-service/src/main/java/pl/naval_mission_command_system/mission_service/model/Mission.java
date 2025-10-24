@@ -78,7 +78,7 @@ public class Mission {
     @NotNull
     @Column(name = "status", nullable = false, length = 20)
     @Builder.Default
-    private MissionStatus status = MissionStatus.PENDING;
+    private MissionStatus missionStatus = MissionStatus.PENDING;
 
     /**
      * Timestamp when the mission record was created.
