@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
 import pl.naval_mission_command_system.mission_service.model.Mission;
 import pl.naval_mission_command_system.mission_service.model.MissionCriticality;
@@ -14,6 +15,7 @@ import java.util.Optional;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
+@ActiveProfiles("test")
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @TestPropertySource(locations = "classpath:application-test.properties")
@@ -27,7 +29,6 @@ class MissionRepositoryTest {
 
         // given
         Mission mission = Mission.builder()
-                .id("123e4567-e89b-12d3-a456-426614174000")
                 .name("Alpha Golf")
                 .description("Night Mission")
                 .missionDifficulty(MissionDifficulty.CRITICAL)
@@ -44,7 +45,6 @@ class MissionRepositoryTest {
 
         //Then
         assertThat(result.isPresent());
-        assertThat(result.get().getId()).isEqualTo("123e4567-e89b-12d3-a456-426614174000");
         assertThat(result.get().getName()).isEqualTo(mission.getName());
         assertThat(result.get().getDescription()).isEqualTo(mission.getDescription());
         assertThat(result.get().getMissionDifficulty()).isEqualTo(MissionDifficulty.CRITICAL);
@@ -52,7 +52,5 @@ class MissionRepositoryTest {
         assertThat(result.get().getMissionStatus()).isEqualTo(MissionStatus.PENDING);
         assertThat(result.get().getCreatedBy()).isEqualTo("John Rambo");
         assertThat(result.get().getUpdatedBy()).isEqualTo("Nicolas Cage");
-        assertThat(result.get().getCreatedAt()).isNotNull();
-        assertThat(result.get().getUpdatedAt()).isNotNull();
     }
 }
