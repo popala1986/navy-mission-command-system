@@ -29,14 +29,14 @@ class MissionTest {
                 .missionDifficulty(MissionDifficulty.HIGH) //
                 .durationMinutes(120)
                 .missionCriticality(MissionCriticality.TOP_SECRET) //
-                .status(MissionStatus.PENDING)
+                .missionStatus(MissionStatus.PENDING)
                 .build();
 
         assertThat(mission.getName()).isEqualTo("Recon Alpha");
         assertThat(mission.getDescription()).contains("enemy");
         assertThat(mission.getMissionDifficulty()).isEqualTo(MissionDifficulty.HIGH);
         assertThat(mission.getDurationMinutes()).isEqualTo(120);
-        assertThat(mission.getStatus()).isEqualTo(MissionStatus.PENDING);
+        assertThat(mission.getMissionStatus()).isEqualTo(MissionStatus.PENDING);
         assertThat(mission.getMissionCriticality()).isEqualTo(MissionCriticality.TOP_SECRET);
     }
 }
