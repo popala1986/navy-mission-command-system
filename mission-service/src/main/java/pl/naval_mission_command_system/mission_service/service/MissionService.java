@@ -31,8 +31,8 @@ public class MissionService {
      * @return a list of all {@link Mission} entities
      */
     public Mission getRandomMission() {
-        List<Mission> allMission = missionRepository.findAll();
-        return allMission.isEmpty() ? null : allMission.get(random.nextInt(allMission.size()));
+        List<Mission> allRandomMission = missionRepository.findAll();
+        return allRandomMission.isEmpty() ? null : allRandomMission.get(random.nextInt(allRandomMission.size()));
     }
 
     /**
