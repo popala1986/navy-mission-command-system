@@ -1,4 +1,4 @@
-package pl.naval_mission_command_system.mission_service.repository;
+package pl.naval_mission_command_system.mission_service.integration;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +10,7 @@ import pl.naval_mission_command_system.mission_service.model.Mission;
 import pl.naval_mission_command_system.mission_service.model.MissionCriticality;
 import pl.naval_mission_command_system.mission_service.model.MissionDifficulty;
 import pl.naval_mission_command_system.mission_service.model.MissionStatus;
+import pl.naval_mission_command_system.mission_service.repository.MissionRepository;
 
 import java.util.Optional;
 

@@ -1,4 +1,4 @@
-package pl.naval_mission_command_system.mission_service.service;
+package pl.naval_mission_command_system.mission_service.unit;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -11,6 +11,7 @@ import pl.naval_mission_command_system.mission_service.model.MissionCriticality;
 import pl.naval_mission_command_system.mission_service.model.MissionDifficulty;
 import pl.naval_mission_command_system.mission_service.model.MissionStatus;
 import pl.naval_mission_command_system.mission_service.repository.MissionRepository;
+import pl.naval_mission_command_system.mission_service.service.MissionService;
 
 import java.util.Arrays;
 import java.util.List;

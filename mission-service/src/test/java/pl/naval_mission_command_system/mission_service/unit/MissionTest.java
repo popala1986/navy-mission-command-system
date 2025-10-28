@@ -1,11 +1,14 @@
-package pl.naval_mission_command_system.mission_service.model;
+package pl.naval_mission_command_system.mission_service.unit;
 
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
 import jakarta.validation.ValidatorFactory;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
+import pl.naval_mission_command_system.mission_service.model.Mission;
+import pl.naval_mission_command_system.mission_service.model.MissionCriticality;
+import pl.naval_mission_command_system.mission_service.model.MissionDifficulty;
+import pl.naval_mission_command_system.mission_service.model.MissionStatus;
 
 
 import static org.assertj.core.api.Assertions.assertThat;
