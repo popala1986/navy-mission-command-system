@@ -4,7 +4,7 @@ package pl.naval_mission_command_system.mission_service.unit;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 import pl.naval_mission_command_system.mission_service.controller.MissionController;
 import pl.naval_mission_command_system.mission_service.model.Mission;
@@ -26,7 +26,7 @@ class MissionControllerTest {
     @Autowired
     private  MockMvc mockMvc;
 
-    @MockBean
+    @MockitoBean
     private MissionService missionService;
 
     @Test
