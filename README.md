@@ -55,7 +55,9 @@ Test profile uses:
 
 ---
 
+
 ## 🚀 Running the Service
+
 
 ### Prerequisites
 
@@ -63,13 +65,14 @@ Test profile uses:
 - Maven
 - Docker + Docker Compose
 
+
 ### Run with Docker Compose
 
 ```bash
 docker-compose up --build
 Services:
 
-mysql — database with password Barcelona1899!
+mysql — database with password ******!
 
 mission-service — Spring Boot application
 
