@@ -98,4 +98,7 @@ Kod
                        ↑
                         [MissionConfig]
 📌 Status
-✅ Integration and unit tests in place ✅ Dockerized and profile-ready ✅ Clean, modular structure ✅ Ready for expansion (e.g., unit-service, auth-service, intel-servic
+✅ Integration and unit tests in place
+✅ Dockerized and profile-ready
+✅ Clean, modular structure
+✅ Ready for expansion (e.g., unit-service, auth-service, intel-servic
