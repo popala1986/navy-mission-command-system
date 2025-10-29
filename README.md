@@ -72,21 +72,30 @@ Test profile uses:
 docker-compose up --build
 Services:
 
+
 mysql — database with password ******!
 
+
+
 mission-service — Spring Boot application
+
+
 
 Run Tests
 bash
 mvn clean test
+
+
 🌐 Spring Profiles
 Profile	File	Purpose
 default	application.properties	Local/prod configuration
 test	application-test.properties	Integration testing
+
+
 🧭 Architecture Diagram (Textual)
 Kod
 [Client] → [MissionController] → [MissionService] → [MissionRepository] → [MySQL]
-                                 ↑
+                       ↑
                         [MissionConfig]
 📌 Status
 ✅ Integration and unit tests in place ✅ Dockerized and profile-ready ✅ Clean, modular structure ✅ Ready for expansion (e.g., unit-service, auth-service, intel-servic
