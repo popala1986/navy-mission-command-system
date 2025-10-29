@@ -1,1 +1,1 @@
-# 🛡️ Mission Service — Naval Mission Command System
+Naval Mission Command System
