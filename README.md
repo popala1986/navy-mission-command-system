@@ -19,14 +19,23 @@ This microservice is responsible for managing missions within a naval command an
 ## 📁 Project Structure
 
 mission-service/ 
+
 ├── controller/ # REST API layer 
+
 ├── service/ # Business logic 
+
 ├── repository/ # Data access layer 
+
 ├── model/ # JPA entities and enums 
+
 ├── config/ # Spring configuration classes 
+
 ├── integration/ # Integration tests 
+
 ├── unit/ # Unit tests 
+
 ├── resources/ # Properties and SQL scripts 
+
 └── MissionServiceApplication.java
 
 Kod
