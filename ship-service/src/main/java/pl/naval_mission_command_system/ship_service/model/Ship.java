@@ -11,7 +11,7 @@ import lombok.*;
  *  * Each {@code Ship} has a unique identifier, a name, an assigned captain,
  *  * an associated mission ID, and a current mission status.
  * </p>
- * 
+ *
  * <p><strong>Persistence:</strong></p>
  * <ul>
  *   <li>Mapped to the {@code Ship} table in the database</li>
