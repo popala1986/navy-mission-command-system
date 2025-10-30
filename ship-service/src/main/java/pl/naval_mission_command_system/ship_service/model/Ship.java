@@ -83,6 +83,9 @@ public class Ship {
      * Defaults to {@code PENDING}.
      */
     @Enumerated(EnumType.STRING)
+    @NotNull
+    @Column(name = "status", nullable = false, length = 20)
+    @Builder.Default
     private MissionStatus missionStatus = MissionStatus.PENDING;
 
 }
