@@ -35,4 +35,6 @@ build/
 ### Spring Boot config ###
 mission-service/src/main/resources/application.properties
 mission-service/src/test/resources/application-test.properties
+ship-service/src/main/resources/application.properties
+ship-service/src/test/resources/application-test.properties
 HELP.md
