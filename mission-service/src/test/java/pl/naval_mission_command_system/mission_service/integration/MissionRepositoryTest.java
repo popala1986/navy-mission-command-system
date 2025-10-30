@@ -6,6 +6,7 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
+import org.springframework.test.context.jdbc.Sql;
 import pl.naval_mission_command_system.mission_service.model.Mission;
 import pl.naval_mission_command_system.mission_service.model.MissionCriticality;
 import pl.naval_mission_command_system.mission_service.model.MissionDifficulty;
@@ -20,6 +21,9 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @TestPropertySource(locations = "classpath:application-test.properties")
+@Sql(scripts = {"/schema-test.sql", "/data-test.sql"}, executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
+@Sql(statements = "DELETE FROM missions", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
+
 class MissionRepositoryTest {
 
     @Autowired
